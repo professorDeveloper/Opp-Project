@@ -1,6 +1,4 @@
 package homework4;
-
-import java.util.Arrays;
 /**
  * Project Admin -> Husanboy Azamov
  * Package Name  -> student
@@ -9,7 +7,6 @@ import java.util.Arrays;
  */
 public class Task4 {
     public static void main(String[] args) {
-
         System.out.println("=============================================================");
         Student student = new Student("Husanboy",1,16);
         student.Info();

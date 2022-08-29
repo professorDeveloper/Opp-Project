@@ -10,11 +10,11 @@ import java.util.Arrays;
  */
 public class LeetCode18 {
     public static void main(String[] args) {
-//        Input: mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
         System.out.println(Arrays.deepToString(diagonalSort(new int[][]{
-                {3, 3, 1, 1},
-                {2, 2, 1, 2},
-                {1, 1, 1, 2}
+                {1,2,3,4,5},
+                {5,4,3,2,1},
+                {1,2,3,4,5},
+                {5,4,3,2,1},
         })));
     }
         public static int[][] diagonalSort(int[][] M) {
@@ -31,7 +31,7 @@ public class LeetCode18 {
                     if (i+j >= 0 && i+j <= x)
                         M[j][i+j] = diag[k++];
             }
+
             return M;
         }
-
 }

@@ -8,7 +8,7 @@ package example;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println(interpret("(al)G(al)()()G"));
+        System.out.println(interpret("Gooo(al)"));
     }
     public static String interpret(String command) {
         String str=command.replace("()","o");

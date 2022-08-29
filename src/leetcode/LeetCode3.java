@@ -8,23 +8,23 @@ package leetcode;
  */
 public class LeetCode3 {
     public static void main(String[] args) {
-        System.out.println(DefendingIp("1.2.3.4.5.6"));
+        System.out.println(DefendingIp("0.0.0.0.0.0.0"));
     }
   public   static String DefendingIp(String str)
     {
-        String defangIP = "";
+        StringBuilder defangIP = new StringBuilder();
         for(int i = 0; i < str.length(); i++)
         {
             char c = str.charAt(i);
             if(c == '.')
             {
-                defangIP += "[.]";
+                defangIP.append("[.]");
             }
             else
             {
-                defangIP += c;
+                defangIP.append(c);
             }
         }
-        return defangIP;
+        return defangIP.toString();
     }
 }

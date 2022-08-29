@@ -38,6 +38,13 @@ public class homework5 {
         System.out.println("===================================================");
         System.out.println(assistant.pow(3, 4));
         System.out.println("===================================================");
+        Kasr kasr=new Kasr(3,6);
+        Kasr kasr2=new Kasr(4,5);
+        System.out.println("========================================");
+        kasr.addTwoKasr(kasr,kasr2);
+        kasr.multiplyTwoKasr(kasr,kasr2);
+        kasr.divisionTwoKasr(kasr,kasr2);
+        kasr.showInfo();
 
     }
 }
@@ -165,4 +172,64 @@ class Assistant {
     }
 }
 
+class Kasr {
+    private int surat;
+    private int maxraj;
 
+    public Kasr(int surat, int maxraj) {
+        this.surat = surat;
+        this.maxraj = maxraj;
+    }
+    public void showInfo(){
+        System.out.println(surat + "/" + maxraj);
+    }
+
+    private int ekub (int a, int b){
+        int ga = 0;
+        if (a < b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        while (b != 0) {
+            ga = a % b;
+            a = b;
+            b = ga;
+        }
+        return a;
+    }
+    private Kasr reduction (Kasr kasr){
+        int a = kasr.surat;
+        int b = kasr.maxraj;
+        int g = 0;
+        if (a < b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        while (b != 0) {
+            g = a % b;
+            a = b;
+            b = g;
+        }
+        kasr.surat /= a;
+        kasr.maxraj /= a;
+        return kasr;
+    }
+
+    void addTwoKasr(Kasr a , Kasr b){
+        int ekuk = a.maxraj * b.maxraj / ekub(a.maxraj,b.maxraj); // a*b = EKUB(a,b) * EKUK(a,b)
+        Kasr kasr = new Kasr((ekuk / a.maxraj) * a.surat + (ekuk / b.maxraj) * b.surat , ekuk);
+
+        reduction(kasr).showInfo();
+    }
+
+    void multiplyTwoKasr(Kasr a, Kasr b){
+        Kasr kasr = new Kasr(a.surat * b.surat,a.maxraj * b.maxraj);
+        reduction(kasr).showInfo();
+    }
+    void divisionTwoKasr(Kasr a, Kasr b){
+        Kasr kasr = new Kasr(a.surat * b.maxraj, b.surat * a.maxraj);
+        reduction(kasr).showInfo();
+    }
+}
