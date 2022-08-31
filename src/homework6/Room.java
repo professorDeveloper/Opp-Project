@@ -34,8 +34,9 @@ public class Room {
     }
 
     public boolean isFull() {
-        return count ==students.length;
+        return count  ==students.length;
     }
+
 
     public boolean isEmpty() {
         return count == 0;
