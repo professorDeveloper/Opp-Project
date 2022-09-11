@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <title>GreenHack - Hackers at Cambridge</title>
+    <link rel="icon" href="assets/img/icon.png">
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- Font-Awesome Icons Styles -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet"/>
+    <link href="assets/css/custom.css" rel="stylesheet"/>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href="//fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+
+<div id="nav-wrapper">
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <!-- Hamburger menu button -->
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="assets/img/GreenHack_text_white.png" width="120" style="margin-top: 1.3em;">
+            </div>
+            <div class="navbar-collapse collapse move-me">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#home-sec">Home</a></li>
+                    <li><a href="#projects-sec">Projects</a></li>
+                    <li><a href="#schedule-sec">Event Schedule</a></li>
+                    <li><a href="#rules-sec">GreenHack Rules</a></li>
+                    <li><a href="teams.html">Teams</a></li>
+                    <li><a href="#contact-sec">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="home-hero">
+    <div class="center" id="home-sec">
+        <img src="assets/img/GreenHack_banner_fg.png" class="header-image">
+    </div>
+</header>
+
+<section id="projects-sec" class="padded-container dark">
+    <div class="center">
+        <div class="text-container center">
+            <!-- <a href="https://www.eventbrite.co.uk/e/greenhack-tickets-43358476370"><button class="btn btn-primary">Get your Free Ticket</button></a> -->
+            <br>
+            <a href="https://www.hackersatcambridge.com" target="_blank">Hackers at Cambridge</a> presents the hackathon aimed at tackling issues around sustainability. Innovate, develop, have fun!
+            <div id="time-container" class="col s8">
+                <p>Hacking time remaining:</p>
+                <h1 id="big-timer">
+                    11:59<span id="seconds">:50</span>
+                </h1>
+            </div>
+            <!-- <a href="https://greenhack.devpost.com"><button class="btn btn-primary">Submit your project</button></a> -->
+            <a href="https://goo.gl/forms/uykuz7pxO5eI4nPF2"><button class="btn btn-primary">Give your feedback!</button></a>
+        </div>
+    </div>
+</section>
+
+<section id="projects-sec" class="padded-container">
+    <div class="center">
+        <h3 class="head-line">The Projects</h3>
+        <div class="text-container center">
+            Our partners have offered up a set of challenges for you to solve. Below you'll see some of the things you might be building during GreenHack (of course, you're welcome to go rogue if you have a great idea with impact).
+        </div>
+    </div>
+    <div class="projects">
+        <section class="text-container hack-idea">
+            <button class="accordion">
+                <h3><i class="fa fa-angle-right"></i> Manufacturer Lifecycle Measurer</h3>
+            </button>
+            <div class="collapsible-panel text-container">
+                <div class="logo-container">
+                    <img src="assets/img/ccf_logo.jpg" class="project-logo"/>
+                </div>
+                <h4 class="subheading">What's the problem?</h3>
+                    <section>
+                        <p>Have you ever bought a product, only to discover that after a few months it has broken? Today, there is an emerging trend for products to be designed to last only a year or so.<br>
+                            For example: the proportion of large household appliances which were replaced within less than five years due to a defect increased from 3.5% to 8.3% between 2004 and 2013 - <a href="https://www.umweltbundesamt.de/en/press/pressinformation/lifetime-of-electrical-appliances-becoming-shorter">source</a> <br>
+                            The issue is more deeply rooted than just costing consumers money, it also creates a huge strain on the environment.<br>
+                            Every year an estimated 2 million tonnes of Waste Electrical Electronic Equipment (WEEE) items are discarded by householders and companies in the UKs - <a href="http://www.hse.gov.uk/waste/waste-electrical.htm">source</a><br>
+                            <a href="http://www.europarl.europa.eu/RegData/etudes/STUD/2016/579000/IPOL_STU(2016)579000_EN.pdf">A Longer Lifetime for Products: Benefits for Consumers and Companies</a>
+                        </p>
+                    </section>
+                    <h4 class="subheading">What's the project</h4>
+                    <section>
+                        This problem is more prominent with some companies products than others. We want to expose who the good and bad people are in this space.<br>
+                        You are welcome to tackle this issue in whatever way you feel is suitable, but we are proposing that you build an app or website that will allow a user to record item manufacturers when they are discarded.<br>
+                        A typical workflow could be:
+                        <ul>
+                            <li>A user takes a picture of an item that they are about to throw away</li>
+                            <li>They enter a rough date they bought it</li>
+                            <li>The app will then use ML/AI/whatever tech is appropriate, to work out the manufacturer, product category and corresponding lifespan</li>
+                        </ul>
+                        This data could be used to build up a view of how long certain brands last. You can also think about new ways in which to portray this data to a user.
+                    </section>
+                    <section class="boxed-block">
+                        <b>Technical resources</b><br>
+                        Here are some notes about technology you may wish to use..
+                        <ul>
+                            <li>Users are unlikely to plan for throwing away items often. Therefore it is unlikely that they will download an app like this. Perhaps a website would be better?</li>
+                            <li>APIs exist which allow you to do Optical Character Recognition which would allow you read product codes.</li>
+                            <li>It may be useful to use a <a href="https://www.scandit.com/upc-lookup/">UPC lookup</a> in order to determine information about a product.</li>
+                            <li>You could use Machine Learning in order to determine the item that a user is scanning and then suggest a category.</li>
+                        </ul>
+                    </section>
+            </div>
+        </section>
+
+        <section class="text-container hack-idea">
+            <button class="accordion">
+                <h3><i class="fa fa-angle-right"></i> Travel Booking Platform</h3>
+            </button>
+            <div class="collapsible-panel">
+                <div class="logo-container">
+                    <img src="assets/img/living_lab_logo.jpg" class="project-logo"/>
+                </div>
+                <h4 class="subheading">What's the problem?</h3>
+                    <p>On a global level, aviation is responsible for 3.5% of anthropogenic (human originating) climate change, growing
+                        significantly year on year. On a per person basis, the contribution of aviation far exceeds any other activity.
+                        Air travel makes up at least 11% of the University’s carbon emissions* and this figure is growing year on year.
+                        <br>Following an international virtual conference in October, there are plans to improve our understanding of how much business
+                        air travel is undertaken across the whole University through better data collection. Alongside this, we want to start
+                        finding ways to make it easier for people to find alternatives to flying, either by using another mode of transport
+                        or by using virtual or video conferencing means.
+                    </p>
+                    <h4 class="subheading">What's the project</h4>
+                    <section>
+                        There is currently no way to easily consider different modes of transport for booking travel that includes CO2 emissions
+                        (crucially) or to look at the different factors affecting these different alternative modes (including the option of joining
+                        remotely!) within the University, although the issue also concerns society more broadly.
+                        It is particularly important to focus on UK and European travel since this is where alternative modes of transport are most
+                        feasible. However, global travel could include the relative carbon efficiency of different airlines.
+
+                        <br>We would like you to design a website to compare aspects such as money, time, CO2 emissions, number of ‘changes’ involved
+                        in journeys. We've provided some links to help you with the route finding and map plotting aspects of the project; what we
+                        are looking for, is a way to allow people to consider different important aspects of the transport modes they are taking -
+                        CO2 emissions in particular.
+
+                        <br>An additional route for this project could be to analyse the travel habits of users by scanning their receipts in their
+                        email inbox and showing how much they have spent in money, CO2 and time on travel this year/month/week.
+                    </section>
+                    <section class="boxed-block">
+                        <b>Technical resources</b><br>
+                        Some resources/tools that may be useful:
+                        <ul>
+                            <li><a href="https://loco2.com" >https://loco2.com</a></li>
+                            <li><a href="https://www.seat61.com/">https://www.seat61.com/</a></li>
+                            <li><a href="https://www.atmosfair.de/en/" >https://www.atmosfair.de/en/ </a></li>
+                            <li><a href = "https://www.fromatob.com/">https://www.fromatob.com/</a>
+                                (probably the closest to the current concept)</li>
+                            <li><a href = "https://www.befrugal.com/tools/fly-or-drive-calculator/">
+                                https://www.befrugal.com/tools/fly-or-drive-calculator/ </a> (US specific) </li>
+                            <li><a href= "https://www.atmosfair.de/en/air_travel_and_climate/atmosfair_airline_index">
+                                https://www.atmosfair.de/en/air_travel_and_climate/atmosfair_airline_index/</a>
+                                (index of airlines based on carbon efficiency)</li>
+                            <li> Route Calculation
+                                <ul>
+                                    <li><a href = "https://partners.skyscanner.net/affiliates/travel-apis/"> https://partners.skyscanner.net/affiliates/travel-apis/</a></li>
+                                    <li><a href = "https://developer.transportapi.com/">https://developer.transportapi.com/</a></li>
+                                </ul>
+                            </li>
+                            <li> Map Plotting
+                                <ul>
+                                    <li><a href = "- [https://developers.google.com/maps/documentation/javascript/directions"> https://developers.google.com/maps/documentation/javascript/directions)</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        This project may draw from information provided by these websites, or it may link to them.
+                    </section>
+                    <h4 class="subheading">Further Opportunities</h4>
+                    <p>
+                        The Living Lab has offered a unique opportunity such that if you are able to develop a functioning system, then they would be willing to provide a testing ground within the
+                        University. It may be that we could link it in with a future procurement system for the University. It could potentially be rolled out more widely to be a tool for general use too.
+                    </p>
+            </div>
+        </section>
+
+        <section class="text-container hack-idea">
+            <button class="accordion">
+                <h3><i class="fa fa-angle-right"></i> Household Energy Monitor</h3>
+            </button>
+            <div class="collapsible-panel">
+                <div class="logo-container">
+                    <img src="assets/img/pivotal_logo.jpg" class="project-logo"/>
+                </div>
+                <h4 class="subheading">What's the problem?</h3>
+                    <p>There are many ways in which energy is wasted in households and workplaces. In the past there have been many campaigns which aim at highlighting and reducing these problems, but
+                        quite often they just consist of stickers on walls or leaflets on desks.
+                        <br>In the context of houses and buildings with increasingly connected appliances, this method of spreading information and awareness seems archaic.
+                        <br>Smart meters have been created in the past, but they have been poorly received, rolled out and often don't help people save energy. People don't waste energy because it's expensive - they do it because they <strong>forget</strong>.
+                    </p>
+                    <h4 class="subheading">What's the project</h4>
+                    <section>
+                        This project should create a way to remind people about the energy they are wasting.
+                        <br>We want you to be creative with IoT. Whether it's a device that shouts at you when you have the lights on in the day, or something that links to your household power consumption and displays the info in a creative way,
+                        we want to see what you can dream.
+                    </section>
+                    <section class="boxed-block">
+                        <b>Technical resources</b><br>
+                        Some technical resources you may wish to consider using...
+                        <ul>
+                            <li>Ideas and facts about energy wastage that needs to be highlighted.
+                                <ul>
+                                    <li><a href = "https://www.environment.admin.cam.ac.uk/facts-figures">https://www.environment.admin.cam.ac.uk/facts-figures</a></li>
+                                    <li><a href= "http://www.savewithsrp.com/advice/10badenergyhabits.aspx"> http://www.savewithsrp.com/advice/10badenergyhabits.aspx </a> </li>
+                                </ul>
+                            </li><li>Less related data about UK power consumption...
+                            <ul>
+                                <li><a href = "https://www.bmreports.com/bmrs/?q=eds/main">BM Reports</a></li>
+                                <li><a href= "http://www.gridwatch.templar.co.uk/"> Gridwatch </a> </li>
+                            </ul>
+                        </li>
+                        </ul>
+                    </section>
+            </div>
+        </section>
+    </div>
+</section>
+<!-- PROJECTS SECTION END-->
+<section id="schedule-sec" class="padded-container">
+    <div class="container basic-set">
+        <div class="row text-center">
+            <h3 class="head-line">Schedule</h3>
+            <ul class="schedule-list">
+                <li><span class="schedule-time">9:00 </span> Arrival</li>
+                <li><span class="schedule-time">10:00</span> Opening Presentations in LR4!</li>
+                <li><span class="schedule-time">10:30</span> Hacking Begins in the DPO</li>
+                <li><span class="schedule-time">12:30</span>  <strong>Lunch</strong></li>
+                <li><span class="schedule-padding">|</span></li>
+                <li><span class="schedule-padding">|</span></li>
+                <li><span class="schedule-padding">|</span> </li>
+                <li><span class="schedule-time">18:00</span> Dinner</li>
+                <li><span class="schedule-time">19:30</span> Start project submission</li>
+                <li><span class="schedule-time">20:00</span> Stop Hacking!</li>
+                <li><span class="schedule-time">20:15</span> Judging Begins!</li>
+                <li><span class="schedule-time">21:00</span> Judging Ends</li>
+                <li><span class="schedule-time">21:15</span> Finalists' Presentations</li>
+                <li><span class="schedule-time">21:45</span> Winners announced!</li>
+                <li><span class="schedule-time">22:00</span> Event ends</li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- SCHEDULE  SECTION END-->
+<section id="rules-sec" class="padded-container">
+
+    <div class="container basic-set">
+        <div class="text-center">
+            <h3 class="head-line">GreenHack Rules</h3>
+        </div>
+        <div class="row ">
+            <p>
+                The aim of GreenHack is to create something original which can really make an impact in the field of sustainability. We've set out some rules to help the event go more smoothly for everyone.
+            </p>
+            <ul>
+                <li>
+                    Please respect and look after the Venue. Note that <span class="emphasis">no food or drinks are permitted in the Venue</span>, and we will be checking!
+                </li>
+                <li>
+                    You can work on your project in a team of up to four people.
+                </li>
+                <li>
+                    Hacking commences at 10.45 and finishes at 20:00.
+                </li>
+                <li>
+                    You are free to use any tools or libraries available to you to create your product. You can start with any pre-existing code or content that you like and you are free to use third-party assets, as long as you let the judges know what you created yourself and what you didn't. <span class="emphasis">Failure to do so could risk disqualification.</span>
+                </li>
+                <li>
+                    It's your responsibilty to make sure that you have the right to use third-party assets (for example, that they are public domain or available under an appropriate license).
+                </li>
+                <li>
+                    Be kind and considerate to your fellow hackers and our volunteers. We're all here to have fun! By participating in the hackathon, you agree to abide by <a href="https://hackcodeofconduct.org/" target="_blank">this Code of Conduct</a>.
+                </li>
+            </ul>
+        </div>
+</section>
+<!-- RULES  SECTION END-->
+
+<section id="contact-sec" class="dark">
+    <div class="container-fluid">
+        <div class="basic-set">
+            <div class="row ">
+                <div class="col-sm-6">
+                    <h3>GreenHack Location</h3>
+                    <br/>
+                    Engineering Department <br>
+                    Trumpington Street <br>
+                    Cambridge <br>
+                    CB2 1PZ <br>
+                    <br/>
+                    <strong>E-mail :</strong> <a href="mailto:team@hackersatcambridge.com">team@hackersatcambridge.com</a>
+                    <br/><br/>
+                </div>
+                <div class="col-sm-6">
+                    <h3>Links</h3>
+                    <div class="social">
+                        <a target="_blank" href="https://www.facebook.com/hackersatcambridge/" style="background-color:#3b5998;"><i class="fa fa-facebook-square "></i>  Facebook </a>
+                        <a target="_blank" href="https://twitter.com/hackersatcam" style="background-color:#55acee;"><i class="fa fa-twitter-square "></i>  Twitter </a>
+                        <a target="_blank" href="https://www.youtube.com/hackersatcambridge" style="background-color:#cd201f;"><i class="fa fa-youtube-square "></i>  YouTube </a>
+                    </div>
+                    <h6> Drop us a message at any point, regarding the hackathon or just general Hackers at Cambridge matters! </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CONTACT  SECTION END-->
+
+<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+<!-- CORE JQUERY  -->
+<script src="assets/js/jquery-1.11.1.js"></script>
+<!-- BOOTSTRAP SCRIPTS  -->
+<script src="assets/js/bootstrap.js"></script>
+<!-- PORTFOLIO FILTER SCRIPTS  -->
+<script src="assets/js/jquery.mixitup.min.js"></script>
+<!-- CUSTOM SCRIPTS  -->
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/schedule_highlighter.js"></script>
+
+<script type="text/javascript" src="countdown.js"></script>
+<script type="text/javascript" src="assets/js/accordion.js"></script>
+
+</body>
+</html>

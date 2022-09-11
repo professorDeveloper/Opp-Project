@@ -7,35 +7,40 @@ package masala;
  * Copyright © : 8/31/2022
  */
 public class Basket {
-    int count;
-    int size;
-    Fruit[] fruitsArray;
+    private int size;
+    private Fruit fruit[];
+    private int emptySize;
+    private int count = 0;
 
     public Basket(int size) {
         this.size = size;
-        fruitsArray = new Fruit[size];
+        emptySize = size;
+        fruit = new Fruit[size];
     }
 
     public boolean add(Fruit fruit) {
-        if (isFull()) return false;
-        fruitsArray[count++] = fruit;
-        return true;
+        if (!isFull()) {
+            this.fruit[count++] = fruit;
+            emptySize--;
+            return true;
+        }
+        return false;
     }
 
     public void show() {
         for (int i = 0; i < count; i++) {
-            System.out.println("======================="+(i+1)+"========================");
-            System.out.println("Fruit Name:"+fruitsArray[i].getName());
-            System.out.println("Fruit Color:"+fruitsArray[i].getColor());
-            System.out.println("=========================================================");
+            System.out.println(fruit[i].getName());
+            System.out.println(fruit[i].getColor());
         }
     }
 
-    public boolean isEmpty() {
-        return count == 0;
+    public boolean isFull() {
+        return emptySize == 0;
+
     }
 
-    public boolean isFull() {
-        return count == fruitsArray.length;
+    public boolean isEmpty() {
+        return emptySize == size;
     }
 }
+

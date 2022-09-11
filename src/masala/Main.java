@@ -15,6 +15,7 @@ public class Main {
         System.out.println(basket.add(fruit));
         System.out.println(basket.add(fruit2));
         System.out.println(basket.add(fruit3));
+        System.out.println(basket.add(fruit));
         System.out.println(basket.isEmpty());
         System.out.println(basket.isFull());
     }
