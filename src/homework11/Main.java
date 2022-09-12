@@ -8,11 +8,13 @@ package homework11;
  */
 public class Main {
     public static void main(String[] args) {
-        B b = new B();
-        b.age = 1;
-        B b1 = new B();
-        b1.age = 1;
-        System.out.println(b.equals(b1.age));
+//        B b = new B();
+//        b.age = 1;
+//        B b1 = new B();
+//        b1.age = 1;
+//        System.out.println(b.equals(b1.age));
+
+        A4 a4= A4.getInstance();
     }
 }
 
@@ -110,4 +112,16 @@ class Triangle extends Shape {
         return (float) (Math.sqrt(p * (p - a) * (p - b) * (p - c)));
     }
 
+}
+
+class  A4 {
+
+    private A4(){
+
+    }
+
+    public  static A4 getInstance(){
+        Object object=new A4();
+        return  (A4)object;
+    }
 }
