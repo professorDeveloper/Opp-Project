@@ -1,5 +1,7 @@
 package homework11;
 
+import java.util.Objects;
+
 /**
  * Project Admin -> Husanboy Azamov
  * Package Name  -> homework11
@@ -8,39 +10,57 @@ package homework11;
  */
 public class Main {
     public static void main(String[] args) {
-//        B b = new B();
-//        b.age = 1;
-//        B b1 = new B();
-//        b1.age = 1;
-//        System.out.println(b.equals(b1.age));
-
-        A4 a4= A4.getInstance();
+        B b = new B();
+        b.age = 1;
+        B b1 = new B();
+        b1.age = 1;
+        System.out.println(b.equals(b1.age));
+        b.getAge();
+        System.out.println();
+        A4 a4 = A4.getInstance();
     }
 }
 
-abstract class A  {
+abstract class A {
+
+    private static Object A = null;
+    public static Object o;
 
     abstract int getAge();
 
-
-    public boolean equals(int age) {
-        return age==getAge();
+    @Override
+    public boolean equals(Object object) {
+        return object.equals(o);
     }
 
 
+    private class o {
+    }
+}
+
+abstract class A1 {
+    private int members;
+
+    protected int Method(int temp) {
+        return members = temp;
+    }
+}
+
+class B1 extends A1 {
+    @Override
+    public int Method(int temp) {
+        return super.Method(temp);
+    }
 }
 
 class B extends A {
-     int age;
+    int age;
 
     @Override
     int getAge() {
         return age;
     }
-    @Override
-    public boolean equals(int age) {
-        return age == getAge();
-    }
+
 }
 
 class Circle extends ShapeAngles {
@@ -83,6 +103,7 @@ abstract class Shape {
     abstract float getSquare();
 }
 
+
 abstract class ShapeAngles extends Shape {
     @Override
     double getPerimeter() {
@@ -114,14 +135,14 @@ class Triangle extends Shape {
 
 }
 
-class  A4 {
+class A4 {
 
-    private A4(){
+    private A4() {
 
     }
 
-    public  static A4 getInstance(){
-        Object object=new A4();
-        return  (A4)object;
+    public static A4 getInstance() {
+
+        return new A4();
     }
 }
