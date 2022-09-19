@@ -1,5 +1,7 @@
 package homework14;
 
+import java.lang.annotation.Inherited;
+
 /**
  * Project Admin -> Husanboy Azamov
  * Package Name  -> homework14

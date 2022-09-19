@@ -11,57 +11,173 @@ import java.util.Arrays;
  * Copyright © : 9/16/2022
  */
 public class GroupManager {
-    private MessageInterface messageInterface;
-    private Group[] groups;
     private User[] users;
-    private int count;
     private int userCount;
+    private Group[] groupsArray;
+    private int groupCount;
 
-    GroupManager() {
-        groups = new Group[10];
-        users = new User[10];
+    public GroupManager() {
+        groupsArray = new Group[10];
+        users=new User[10];
     }
 
-    void setMessageListener(MessageInterface messageListener) {
-        messageInterface = messageListener;
+    private MessageInterface messageInterface;
+
+    public void setManagerListener(MessageInterface listener) {
+        messageInterface = listener;
     }
 
-    void addGroup(String groupName, int capacity) {
-        if (count == groups.length) {
-            groups = resizeArray(groups);
+    private class Group {
+        private int count;
+        private String groupName;//gruhni Nomi
+        private int capacity;//guruh Sigimi
+        private User[] usersArray;////guruhdi Massivi
+
+        public Group(String groupName, int capacity) {
+            this.groupName = groupName;
+            this.capacity = capacity;
+            usersArray = new User[capacity];
         }
-        Group group = new Group(groupName, capacity);
-        int currentPosition = checkGroup(groupName);
-        if (currentPosition != -1) {
-            messageInterface.showMessage("Bunday guruh mavjud");
+
+        public boolean checkGroupUser(User user) {//Husanhon
+            if (count == 0) return false;
+            for (int i = 0; i < count; i++) {
+                if (usersArray[i].toString().equals(user.toString())) {//hamma 3 ta oti familyasi yoshini equals qivoradi toStrin
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void addGroupUsers(User user) {
+            if (count == capacity) {
+                System.out.println("Group is Full");
+                return;
+            }
+            usersArray[count++] = user;
+        }
+
+        public void removeGroupUser(User user) {
+            if (count == 0) {
+                return;
+            }
+            if (checkGroupUsers(user) == -1) return;
+            int position = checkGroupUsers(user);
+            usersArray[position] = usersArray[--count];
+        }
+
+        public int checkGroupUsers(User user) {//Husanhon
+            if (count == 0) return -1;
+            for (int i = 0; i < count; i++) {
+                if (usersArray[i].toString().equals(user.toString())) {//hamma 3 ta oti familyasi yoshini equals qivoradi toStrin
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public boolean isFull() {
+            return count == capacity;
+        }
+    }
+
+    public void createGroup(String groupName, int capacityGroup) {
+        if (groupsArray.length == groupCount) {
+            groupsArray = ArrayListResize(groupsArray);
+        }
+        if (checkGroup(groupName) != -1) {
+            messageInterface.showMessage("Group is Have");//ekranga chiqish natijasi
             return;
         }
-        messageInterface.showMessage("Guruh ochildi !");
-        groups[count++] = group;
+        Group group = new Group(groupName, capacityGroup);
+        groupsArray[groupCount++] = group;
+        messageInterface.showMessage("Group is Opened");//guruh ochilib boldi !
+    }
+
+    private int checkGroup(String groupName) {
+        if (groupCount == 0) return -1;//hali umuman GURH mavjud bolmagan !
+        for (int i = 0; i < groupCount; i++) {
+            if (groupsArray[i].groupName.equals(groupName)) {
+                return i;//GURUH mavjud
+            }
+        }
+        return -1;//GURUH mavjud emas !
+    }
+
+    public void deleteGroup(String groupNameForDelete) {
+        if (checkGroup(groupNameForDelete) == -1) {
+            messageInterface.showMessage("Group is not Found");
+            return;
+        }
+        int position = checkGroup(groupNameForDelete);//1
+        groupsArray[position] = groupsArray[--groupCount];//
+        //1=
+    }
+
+    private Group[] ArrayListResize(Group[] array) {
+        Group[] objects = new Group[array.length + array.length / 2];
+        for (int i = 0; i < array.length; i++) {
+            objects[i] = array[i];
+        }
+        return array = objects;
+    }
+    private User[] ArrayListResize(User[] array) {
+        User[] objects = new User[array.length + array.length / 2];
+        for (int i = 0; i < array.length; i++) {
+            objects[i] = array[i];
+        }
+        return array = objects;
+    }
+
+    public void addUserFromGroup(String addGroupName, User addUser) {
+        if (checkGroup(addGroupName) == -1) {
+            messageInterface.showMessage("Gropu is not Found");
+            return;
+        }
+        int position = checkGroup(addGroupName);//guruhdi topib oldik
+        Group gg = groupsArray[position];
+        if (gg.checkGroupUser(addUser)) {
+            messageInterface.showMessage("User is not Add");
+            return;
+        }
+        if (gg.isFull()) {
+            messageInterface.showMessage("Group Users is Full");
+            return;
+        }
+        gg.addGroupUsers(addUser);
 
     }
 
-    void deleteGroup(String groupName) {
-        int position = checkGroup(groupName);
-        if (count == 0) messageInterface.showMessage("Guruhlar Ro`yhati bo`sh !");
-        if (position > -1) {
-            groups[position] = groups[--count];
-            messageInterface.showMessage("Guruh o`chirildi !");
+    public void removeUserFromGroup(String groupName, User removeUser) {
+        if (checkGroup(groupName) == -1) {
+            messageInterface.showMessage("Gropu is not Found");
+            return;
         }
-        messageInterface.showMessage("Guruh mavjud emas");
+        int position = checkGroup(groupName);//guruhdi topib oldik
+        Group gg = groupsArray[position];
+        if (gg.checkGroupUser(removeUser)) {
+            messageInterface.showMessage("User is not Add");
+            return;
+        }
+        if (gg.isFull()) {
+            messageInterface.showMessage("Group Users is Full");
+            return;
+        }
+        gg.removeGroupUser(removeUser);
+
     }
 
     void getUserOfManyGroup() {
-        for (int i = 1; i < count; i++) {
-            for (int j = 0; j < groups[i].count; j++) {
-                if (groups[i - 1].checkUser(groups[i].users[j])) {
-                    if (users.length==userCount)users=resizeArray(users);
-                    users[userCount++] = groups[i].users[j];
+        for (int i = 1; i < groupCount; i++) {
+            for (int j = 0; j < groupsArray[i].count; j++) {
+                if (groupsArray[i - 1].checkGroupUser(groupsArray[i].usersArray[j])) {
+                    if (users.length==userCount)users=ArrayListResize(users);
+                    users[userCount++] = groupsArray[i].usersArray[j];
                 }
             }
 
         }
-        for (int i = 0; i < userCount; i++) {
+        for (int i = 0; i < userCount; i++) {//4
             User element = users[i];
             boolean mavjud = false; //
             for (int j = 0; j < i; j++) {
@@ -71,120 +187,5 @@ public class GroupManager {
                 messageInterface.showMessage(element.toString());
             }
         }
-        }
-
-    void addUserToGroup(String groupName, User user) {
-        int groupPosition = checkGroup(groupName);
-        if (groupPosition == -1) {
-            messageInterface.showMessage("Guruh Toplimadi !");
-            return;
-
-
-        }
-        Group group = groups[groupPosition];
-        if (!group.hasStead()) {
-            messageInterface.showMessage("Guruhda joy mavjud emas !");
-            return;
-        }
-        if (group.checkUser(user)) {
-            messageInterface.showMessage("User oldindan Mavjud !");
-            return;
-        }
-        group.addUser(user);
     }
-
-    void removeUserToGroup(String groupName, User user) {
-        int groupPosition = checkGroup(groupName);
-        if (groupPosition == -1) {
-            messageInterface.showMessage("Guruh Toplimadi !");
-            return;
-        }
-        Group group = groups[groupPosition];
-        if (!group.hasStead()) {
-            messageInterface.showMessage("Guruhda joy mavjud emas !");
-            return;
-        }
-        if (group.checkUser(user)) {
-
-            messageInterface.showMessage("User O`chirildi !");
-            group.removeUser(user);
-            group.count--;
-            return;
-        }
-        messageInterface.showMessage("User Topilmadi");
-    }
-
-
-    private Group[] resizeArray(Group[] array) {
-        Group[] objects = new Group[array.length + array.length / 2];
-        for (int i = 0; i < array.length; i++) {
-            objects[i] = array[i];
-        }
-        return array = objects;//referenc ketdi
-    }
-    private User[] resizeArray(User[] array) {
-        User[] objects = new User[array.length + array.length / 2];
-        for (int i = 0; i < array.length; i++) {
-            objects[i] = array[i];
-        }
-        return array = objects;//referenc ketdi
-    }
-
-    private int checkGroup(String groupName) {
-        for (int i = 0; i < count; i++) {
-            if (groups[i].name.equals(groupName)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    private class Group {
-        private String name;
-        private int capacity;
-        private User[] users;
-        private int count;
-
-        public Group(String name, int capacity) {
-            this.name = name;
-            this.capacity = capacity;
-            users = new User[capacity];
-        }
-
-        @Override
-        public String toString() {
-            return name;
-        }
-
-        public boolean hasStead() {
-            return count != capacity;
-        }
-
-        public boolean checkUser(User user) {
-            for (int i = 0; i < count; i++) {
-                if (users[i].toString().equals(user.toString())) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public void addUser(User user) {
-            users[count++] = user;
-        }
-
-        public void removeUser(User user) {
-            int position = 0;
-            for (int i = 0; i < count; i++) {
-                if (!users[i].toString().equals(user.toString())) {
-                    return;
-                } else {
-                    position = i;
-                }
-
-            }
-            users[position] = users[--count];
-        }
-    }
-
 }

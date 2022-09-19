@@ -8,27 +8,25 @@ package homework14;
  */
 public class Main {
     public static void main(String[] args) {
-        GroupManager groupManager =new GroupManager();
-        groupManager.setMessageListener(new MessageInterface() {
+        GroupManager groupManager=new GroupManager();
+        groupManager.setManagerListener(new MessageInterface() {
             @Override
             public void showMessage(String message) {
                 System.out.println(message);
+
             }
         });
-        User user=new User("Robert","Down",20);
-        User user2=new User("Daniel","Defo",16);
-        User user3=new User("Jack","Atkinson",31);
-        groupManager.addGroup("Bootcamp4",27);
-        groupManager.addGroup("BootcampChat",2);
-        groupManager.addGroup("BootcampChats",2);
-        groupManager.addGroup("MyCode",7);
-        groupManager.addUserToGroup("MyCode",user);
-        groupManager.addUserToGroup("MyCode",user2);
-        groupManager.addUserToGroup("MyCode",user3);
-        groupManager.addUserToGroup("BootcampChat",user3);
-        groupManager.addUserToGroup("BootcampChat4",user3);
-        groupManager.addUserToGroup("Bootcamp4",user3);
-        groupManager.addUserToGroup("BootcampChats",user);
+        User user=new User("Jamshid","Qo`ziyev",20);
+        User user2=new User("Husanxon","Azamov",16);
+        User user3=new User("Tal`at","Allamurodov",31);
+        groupManager.createGroup("TIPTOP",27);
+        groupManager.createGroup("BUYAKASHA",2);
+        groupManager.createGroup("LAYLAK",2);
+        groupManager.createGroup("BESHBARMOQ",7);
+        groupManager.addUserFromGroup("TIPTOP",user);
+        groupManager.addUserFromGroup("BUYAKASHA",user2);
+        groupManager.addUserFromGroup("LAYLAK",user3);
+//        groupManager.addUserFromGroup("BESHBARMOQ",user3);
         groupManager.getUserOfManyGroup();
     }
 }

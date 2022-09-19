@@ -2,7 +2,7 @@ package imtihon;
 
 public class Cars {
         public static void main(String[]args){
-                Factory fac1 = new Factory("Nissan company");
+                Factory fac1 = new Factory("Nissan Camry");
                 Factory fac2 = new Factory("Ferrari company");
                 Model model1 = new Model("Car1","Black");
                 Model model2 = new Model("Car2","Yellow");
