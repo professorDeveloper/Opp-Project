@@ -1,4 +1,7 @@
 package homework10.studentLesson;
+
+import org.jetbrains.annotations.NotNull;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -44,7 +47,7 @@ class Student{
     private int currentLimit;
     private Lesson[] lessons;
 
-    public Student(String studentName, int age, Limit limit) {
+    public Student(String studentName, int age, @NotNull Limit limit) {
         this.studentName = studentName;
         this.age = age;
         this.limit = limit;

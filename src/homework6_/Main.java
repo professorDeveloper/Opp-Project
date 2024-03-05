@@ -1,5 +1,7 @@
 package homework6_;
 
+import java.lang.reflect.Array;
+
 public class Main {
     public static void main(String[] args) {
         Device device = new Device(80);

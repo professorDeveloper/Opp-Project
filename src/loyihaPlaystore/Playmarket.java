@@ -16,12 +16,13 @@ public class Playmarket {
 
 
     public Playmarket(int size) {
-        this.size=size;
+        this.size = size;
         names = new ArrayList<>();
         sizes = new ArrayList<>();
         currentMemory = size;
-            }
-    public boolean addApp(App app){
+    }
+
+    public boolean addApp(App app) {
 
         if (!(names.contains(app.getName())) && (currentMemory >= app.getSize())) {
             names.add(app.getName());
@@ -31,17 +32,21 @@ public class Playmarket {
         }
         return false;
     }
-    public void infoApp(){
+
+    public void infoApp() {
         for (int i = 0; i < names.size(); i++) {
             System.out.println("=============================[" + (i + 1) + "]===========================");
             System.out.println("AppName: " + names.get(i));
             System.out.println("AppSize: " + sizes.get(i));
             System.out.println("=====================================================================");
-        }    }
-    public int infoCountApp(){
+        }
+    }
+
+    public int infoCountApp() {
         return sizes.size();
     }
-    public boolean removeApp(App app){
+
+    public boolean removeApp(App app) {
 
         if (names.contains(app.getName())) {
             int a = names.indexOf(app.getName());
@@ -51,7 +56,8 @@ public class Playmarket {
         }
         return false;
     }
-    public int infoMemory(){
+
+    public int infoMemory() {
         return currentMemory;
     }
 
