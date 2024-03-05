@@ -19,7 +19,7 @@ public class Main {
         User user=new User("Jamshid","Qo`ziyev",20);
         User user2=new User("Husanxon","Azamov",16);
         User user3=new User("Tal`at","Allamurodov",31);
-        groupManager.createGroup("TIPTOP",27);
+        groupManager.createGroup("DD",27);
         groupManager.createGroup("BUYAKASHA",2);
         groupManager.createGroup("LAYLAK",2);
         groupManager.createGroup("BESHBARMOQ",7);
